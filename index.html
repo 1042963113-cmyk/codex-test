@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Codex Studio：持续设计、构建并上线数字作品的个人开发者 Portfolio。" />
+    <meta name="description" content="Codex Studio V5：带实时 GitHub 数据、项目详情与更完整交互的个人开发者 Portfolio。" />
     <meta name="theme-color" content="#f7f5ff" />
-    <title>Codex Studio · Portfolio V4</title>
+    <title>Codex Studio · Portfolio V5</title>
     <script>
       (() => {
         const saved = localStorage.getItem("codex-theme");
@@ -24,7 +24,7 @@
         <span class="brand-mark" aria-hidden="true">C</span><span>Codex Studio</span>
       </a>
       <nav class="nav" id="site-nav" aria-label="主导航">
-        <a href="#home">首页</a><a href="#projects">作品</a><a href="#skills">技能</a><a href="#journey">历程</a><a href="#contact">联系</a>
+        <a href="#home">首页</a><a href="#projects">作品</a><a href="#live">实时数据</a><a href="#journey">历程</a><a href="#contact">联系</a>
       </nav>
       <div class="header-actions">
         <button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换深色模式"><span aria-hidden="true">◐</span></button>
@@ -35,76 +35,108 @@
     <main id="main">
       <section class="hero section-shell reveal" id="home">
         <div class="hero-copy">
-          <div class="version-lockup"><span>V4</span><strong>Current Version</strong></div>
-          <p class="eyebrow">PERSONAL DEVELOPER · PORTFOLIO / STUDIO</p>
-          <h1>把想法，构建成<br /><em>真正上线</em>的作品。</h1>
-          <p class="hero-text">Codex Studio 是一个持续进化的个人开发者工作室。从验证一条链路开始，现在专注于简洁、可靠且有品质的 Web 体验。</p>
+          <div class="version-lockup"><span>V5</span><strong>Live Portfolio</strong></div>
+          <p class="eyebrow">BUILD · SHIP · MEASURE · IMPROVE</p>
+          <h1>不只展示作品，<br /><em>让网站真正工作。</em></h1>
+          <p class="hero-text">第五版开始加入真实数据与更完整的产品体验：实时读取 GitHub 仓库信息、独立项目详情页、分享与复制链接，以及更清晰的版本演进。</p>
           <div class="hero-actions">
-            <a class="button primary" href="#projects">探索作品 <span aria-hidden="true">↘</span></a>
-            <a class="button secondary" href="https://github.com/1042963113-cmyk/codex-test" target="_blank" rel="noreferrer">访问 GitHub <span aria-hidden="true">↗</span></a>
+            <a class="button primary" href="#projects">查看 V5 功能 <span aria-hidden="true">↘</span></a>
+            <a class="button secondary" href="project.html">打开项目详情 <span aria-hidden="true">↗</span></a>
           </div>
-          <ul class="hero-tech" aria-label="核心技术">
-            <li>HTML</li><li>CSS</li><li>JavaScript</li><li>GitHub</li><li>Codex</li>
+          <ul class="hero-tech" aria-label="核心能力">
+            <li>Live GitHub Data</li><li>Project Detail</li><li>Responsive</li><li>Dark Mode</li><li>Accessible</li>
           </ul>
         </div>
-        <div class="hero-art" aria-label="Codex Studio 项目概览">
-          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-          <div class="studio-window">
-            <div class="window-bar"><span></span><span></span><span></span><small>codex.studio / v4</small></div>
-            <div class="window-content">
-              <div class="window-label"><i></i> AVAILABLE TO BUILD</div>
-              <p>DESIGN<br />BUILD<br /><b>SHIP.</b></p>
-              <div class="window-footer"><span>04 / PORTFOLIO</span><span>2026</span></div>
+
+        <div class="hero-art" aria-label="V5 运行状态">
+          <div class="signal-card">
+            <div class="signal-top"><span class="live-dot"></span><span>LIVE SYSTEM</span><small>V5</small></div>
+            <div class="signal-title">Portfolio<br /><b>with real data.</b></div>
+            <div class="signal-grid">
+              <div><span>Repository</span><strong id="hero-repo">codex-test</strong></div>
+              <div><span>Visibility</span><strong id="hero-visibility">public</strong></div>
+              <div><span>Updated</span><strong id="hero-updated">loading…</strong></div>
+              <div><span>Status</span><strong class="online">online</strong></div>
             </div>
           </div>
-          <span class="float-chip chip-one">Responsive ✓</span><span class="float-chip chip-two">Fast &amp; accessible</span>
+          <span class="float-chip chip-one">GitHub API ✓</span>
+          <span class="float-chip chip-two">No framework</span>
         </div>
       </section>
 
-      <section class="stats section-shell reveal" aria-label="项目数据">
-        <article><strong>04</strong><span>版本迭代</span></article><article><strong>100%</strong><span>静态托管</span></article><article><strong>24/7</strong><span>在线访问</span></article><article><strong>PR</strong><span>规范更新</span></article>
+      <section class="stats section-shell reveal" aria-label="V5 核心能力">
+        <article><strong>05</strong><span>版本迭代</span></article>
+        <article><strong>LIVE</strong><span>GitHub 数据</span></article>
+        <article><strong>2</strong><span>独立页面</span></article>
+        <article><strong>0</strong><span>大型框架</span></article>
       </section>
 
       <section class="section-shell section-block" id="projects">
-        <div class="section-heading reveal"><div><p class="eyebrow">SELECTED WORK / 作品</p><h2>每一版，都是一次<br />真实的产品迭代。</h2></div><p>从最小验证到完整 Portfolio，保留过程，也展示结果。</p></div>
-        <div class="projects-grid">
-          <article class="project-card featured reveal">
-            <div class="project-top"><span class="project-index">01 / FEATURED</span><span class="status current"><i></i> Current</span></div>
-            <div class="featured-content"><div><h3>Codex Studio</h3><p>成熟、精致的个人开发者 Portfolio / Studio。覆盖作品、技能、历程与联系，让持续构建这件事有一个专业的数字主页。</p><ul class="tag-list"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>UI Design</li></ul></div><div class="project-monogram" aria-hidden="true">CS<span>V4</span></div></div>
-            <a class="project-link" href="#home" aria-label="查看 Codex Studio 项目">查看项目 <span>↗</span></a>
-          </article>
-          <article class="project-card reveal"><div class="project-top"><span class="project-index">02</span><span class="status">Archived</span></div><h3>Website V1</h3><p>用最小页面验证从 Codex、GitHub 到 Pages 的完整发布链路。</p><ul class="tag-list"><li>HTML</li><li>GitHub Pages</li></ul><a class="project-link" href="https://github.com/1042963113-cmyk/codex-test/tree/website-v1" target="_blank" rel="noreferrer">查看项目 <span>↗</span></a></article>
-          <article class="project-card reveal"><div class="project-top"><span class="project-index">03</span><span class="status">Archived</span></div><h3>Website V2</h3><p>建立完整内容结构，加入现代视觉与多设备响应式布局。</p><ul class="tag-list"><li>HTML</li><li>CSS</li><li>Responsive</li></ul><a class="project-link" href="https://github.com/1042963113-cmyk/codex-test/tree/website-v2" target="_blank" rel="noreferrer">查看项目 <span>↗</span></a></article>
-          <article class="project-card reveal"><div class="project-top"><span class="project-index">04</span><span class="status">Previous</span></div><h3>Website V3</h3><p>升级为 Codex Studio，加入品牌、主题切换与滚动微交互。</p><ul class="tag-list"><li>JavaScript</li><li>Dark Mode</li><li>Codex</li></ul><a class="project-link" href="https://github.com/1042963113-cmyk/codex-test/tree/codex/website-v3" target="_blank" rel="noreferrer">查看项目 <span>↗</span></a></article>
+        <div class="section-heading reveal">
+          <div><p class="eyebrow">PRODUCT / 作品</p><h2>第五版开始，<br />网站有了真正的功能。</h2></div>
+          <p>除了视觉与响应式体验，V5 进一步加入实时 GitHub 数据、项目详情页和可分享链接，让 Portfolio 从静态展示变成可持续使用的产品。</p>
         </div>
+
+        <div class="feature-grid">
+          <article class="feature-card reveal"><span>01</span><h3>实时 GitHub 数据</h3><p>页面通过 GitHub 公共 API 读取仓库 stars、forks、最近更新时间与默认分支，失败时自动回退到本地状态。</p></article>
+          <article class="feature-card reveal"><span>02</span><h3>独立项目详情页</h3><p>新增 project.html，用更完整的方式介绍技术架构、迭代过程和上线链路，而不是把所有内容都挤在首页。</p></article>
+          <article class="feature-card reveal"><span>03</span><h3>分享与复制链接</h3><p>支持原生 Web Share API；不支持时自动复制当前页面链接，方便直接把作品分享出去。</p></article>
+        </div>
+
+        <article class="project-card featured reveal">
+          <div class="project-top"><span class="project-index">FEATURED / V5</span><span class="status current"><i></i> Current</span></div>
+          <div class="featured-content">
+            <div>
+              <h3>Codex Studio V5</h3>
+              <p>一个真正可长期迭代的个人开发者 Portfolio。保留 V4 的视觉语言，同时加入真实仓库数据、独立项目页面、分享能力与更清晰的信息架构。</p>
+              <ul class="tag-list"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>GitHub API</li><li>Pages</li></ul>
+              <div class="project-actions"><a class="button primary" href="project.html">查看项目详情</a><button class="button secondary" id="share-site" type="button">分享网站</button></div>
+              <p class="share-feedback" id="share-feedback" role="status" aria-live="polite"></p>
+            </div>
+            <div class="project-monogram" aria-hidden="true">V5<span>LIVE</span></div>
+          </div>
+        </article>
       </section>
 
-      <section class="skills-section section-block" id="skills">
+      <section class="live-section section-block" id="live">
         <div class="section-shell">
-          <div class="section-heading reveal"><div><p class="eyebrow">CAPABILITIES / 技能</p><h2>从结构到上线，<br />让细节形成体验。</h2></div><p>以原生 Web 技术为核心，兼顾视觉表达、响应式体验与可靠交付。</p></div>
-          <div class="skills-grid">
-            <article class="skill-card reveal"><span>01</span><div class="skill-icon">&lt;/&gt;</div><h3>HTML</h3><p>语义化结构</p></article><article class="skill-card reveal"><span>02</span><div class="skill-icon">✦</div><h3>CSS</h3><p>现代视觉系统</p></article><article class="skill-card reveal"><span>03</span><div class="skill-icon">JS</div><h3>JavaScript</h3><p>轻量原生交互</p></article><article class="skill-card reveal"><span>04</span><div class="skill-icon">⌘</div><h3>GitHub</h3><p>版本协作</p></article><article class="skill-card reveal"><span>05</span><div class="skill-icon">↗</div><h3>GitHub Pages</h3><p>持续部署</p></article><article class="skill-card reveal"><span>06</span><div class="skill-icon">C</div><h3>Codex</h3><p>AI 协作开发</p></article><article class="skill-card reveal"><span>07</span><div class="skill-icon">▣</div><h3>Responsive Design</h3><p>多设备适配</p></article><article class="skill-card reveal"><span>08</span><div class="skill-icon">◫</div><h3>UI Design</h3><p>界面与体验</p></article>
+          <div class="section-heading reveal">
+            <div><p class="eyebrow">LIVE REPOSITORY / 实时数据</p><h2>现在，数据来自<br />真正的 GitHub 仓库。</h2></div>
+            <p>下面的数据不是手写数字。页面会在访问时请求 GitHub 的公开仓库 API，并显示当前仓库的真实状态。</p>
+          </div>
+
+          <div class="live-grid reveal" aria-live="polite">
+            <article><span>Stars</span><strong id="repo-stars">—</strong><small>GitHub stars</small></article>
+            <article><span>Forks</span><strong id="repo-forks">—</strong><small>repository forks</small></article>
+            <article><span>Default branch</span><strong id="repo-branch">—</strong><small>active branch</small></article>
+            <article><span>Last updated</span><strong id="repo-updated">—</strong><small id="repo-state">正在读取 GitHub…</small></article>
+          </div>
+
+          <div class="live-actions reveal">
+            <a class="button primary" href="https://github.com/1042963113-cmyk/codex-test" target="_blank" rel="noreferrer">打开 GitHub 仓库 <span>↗</span></a>
+            <button class="button secondary" id="refresh-data" type="button">刷新实时数据</button>
           </div>
         </div>
       </section>
 
       <section class="section-shell section-block" id="journey">
-        <div class="section-heading reveal"><div><p class="eyebrow">EVOLUTION / 历程</p><h2>四次迭代，<br />一条清晰的进化轨迹。</h2></div><p>不追求一次完成，而是在每一次发布中解决更真实的问题。</p></div>
+        <div class="section-heading reveal"><div><p class="eyebrow">EVOLUTION / 历程</p><h2>五次迭代，<br />从验证到产品。</h2></div><p>每一版都解决一个更真实的问题：能上线、好看、像品牌、像作品集，再到今天真正具备动态功能。</p></div>
         <div class="timeline">
-          <article class="reveal"><div class="timeline-marker">V1</div><div><p class="timeline-date">FOUNDATION</p><h3>验证发布链路</h3><p>验证 Codex → GitHub → Pages 链路，让第一个页面真正上线。</p></div></article>
-          <article class="reveal"><div class="timeline-marker">V2</div><div><p class="timeline-date">STRUCTURE</p><h3>建立完整响应式网站</h3><p>补全页面结构与内容层级，让手机、平板和桌面都有良好体验。</p></div></article>
-          <article class="reveal"><div class="timeline-marker">V3</div><div><p class="timeline-date">IDENTITY</p><h3>升级为 Codex Studio</h3><p>形成独立品牌，加入深色模式、移动导航和滚动交互。</p></div></article>
-          <article class="active reveal"><div class="timeline-marker">V4</div><div><div class="current-label"><i></i> CURRENT</div><p class="timeline-date">PORTFOLIO</p><h3>升级为完整 Portfolio / Studio</h3><p>重塑作品、技能、历程与联系区域，以更成熟的设计呈现完整能力。</p></div></article>
+          <article class="reveal"><div class="timeline-marker">V1</div><div><p class="timeline-date">FOUNDATION</p><h3>验证发布链路</h3><p>跑通 Codex → GitHub → Pages。</p></div></article>
+          <article class="reveal"><div class="timeline-marker">V2</div><div><p class="timeline-date">STRUCTURE</p><h3>完整响应式页面</h3><p>建立内容结构与多设备布局。</p></div></article>
+          <article class="reveal"><div class="timeline-marker">V3</div><div><p class="timeline-date">IDENTITY</p><h3>形成 Codex Studio</h3><p>加入品牌、主题与滚动交互。</p></div></article>
+          <article class="reveal"><div class="timeline-marker">V4</div><div><p class="timeline-date">PORTFOLIO</p><h3>完整作品集</h3><p>重做作品、技能与版本历程。</p></div></article>
+          <article class="active reveal"><div class="timeline-marker">V5</div><div><div class="current-label"><i></i> CURRENT</div><p class="timeline-date">PRODUCT</p><h3>加入真实功能</h3><p>实时 GitHub 数据、独立详情页与分享能力正式上线。</p></div></article>
         </div>
       </section>
 
       <section class="contact section-shell reveal" id="contact">
-        <div><p class="eyebrow">LET'S BUILD / 联系</p><h2>下一步，一起做点<br /><em>真正上线</em>的东西。</h2><p>每个好项目都从一次明确的行动开始。去 GitHub 看看代码，或者回到顶部继续探索。</p></div>
-        <div class="contact-actions"><a class="button primary" href="https://github.com/1042963113-cmyk/codex-test" target="_blank" rel="noreferrer">GitHub <span>↗</span></a><a class="button secondary" href="#home">返回顶部 <span>↑</span></a></div>
+        <div><p class="eyebrow">NEXT / 下一步</p><h2>现在，它已经不只是<br /><em>一张漂亮的网页。</em></h2><p>V5 已经具备真实数据和多页面结构。下一步可以继续加入自定义域名、真实联系渠道、分析统计或更多独立项目。</p></div>
+        <div class="contact-actions"><a class="button primary" href="project.html">项目详情 <span>↗</span></a><button class="button secondary" id="copy-link" type="button">复制网站链接</button><a class="button secondary" href="#home">返回顶部 <span>↑</span></a></div>
       </section>
     </main>
 
-    <footer class="site-footer"><a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">C</span><span>Codex Studio</span></a><p>Built with Codex + GitHub Pages</p><p>© 2026</p></footer>
+    <footer class="site-footer"><a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">C</span><span>Codex Studio</span></a><p>V5 · Built with Codex + GitHub Pages</p><p>© 2026</p></footer>
     <script src="script.js"></script>
   </body>
 </html>
