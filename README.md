@@ -1,39 +1,44 @@
-# Codex Studio · Website V5
+# Codex Studio · Website V6
 
-Codex Studio 是一个使用原生 Web 技术持续迭代的个人开发者 Portfolio / Studio 网站。V5 从“完整作品集”继续升级为“带真实功能的产品”：加入实时 GitHub 数据、独立项目详情页、分享能力和更清晰的多页面结构。
+Codex Studio 是一个使用原生 Web 技术持续迭代的个人开发者 Portfolio / Studio 网站。V6 从“带实时数据的 Portfolio”进一步升级为“可操作的本地 Web App”：加入项目 CRUD、搜索筛选、本地持久化与 JSON 导入导出。
 
-## V5 新功能
+## V6 新功能
 
-- 通过 GitHub 公共 API 实时读取仓库 Stars、Forks、默认分支和最近更新时间
-- 新增 `project.html` 独立项目详情页
-- 新增原生 Web Share 分享能力，并在不支持时回退到复制链接
-- 新增手动刷新实时仓库数据
-- 保留并优化 V4 的深色模式、响应式导航、滚动状态和无障碍体验
-- 修复页面横向溢出，继续适配手机、iPad 横屏和桌面
+- 新增 `app.html` 本地项目工作台
+- 支持项目创建、读取、编辑和删除（CRUD）
+- 支持按名称、描述和标签搜索
+- 支持按“想法 / 开发中 / 已上线”筛选
+- 使用 `localStorage` 保存项目，刷新页面后仍会保留
+- 支持导出项目为 JSON 文件
+- 支持从 JSON 文件重新导入项目
+- 保留 V5 的 GitHub API、深色模式、响应式布局与多页面结构
 - 不依赖 React、Vue 或大型第三方框架
+
+> 注意：V6 的项目数据保存在当前浏览器本地，并不是云端数据库。清除网站数据会删除本地内容，因此重要数据请使用“导出 JSON”备份。
 
 ## 项目结构
 
 ```text
 .
-├── index.html       # V5 首页
-├── project.html     # 独立项目详情页
-├── style-v5.css     # V5 视觉系统、主题与响应式布局
-├── script-v5.js     # V5 主题、导航、分享与 GitHub API
-├── style.css        # V4 样式历史文件
-├── script.js        # V4 脚本历史文件
+├── index.html       # V6 首页
+├── app.html         # V6 本地项目工作台
+├── app-v6.css       # 工作台样式
+├── app-v6.js        # CRUD、搜索、筛选、localStorage、JSON 导入导出
+├── project.html     # V5 项目详情页
+├── style-v5.css     # V5/V6 共用视觉系统
+├── script-v5.js     # 主题、导航、滚动与 GitHub API
 └── README.md        # 项目说明
 ```
 
-## 实时数据
+## 数据说明
 
-首页会请求：
+V6 工作台使用浏览器 `localStorage`：
 
 ```text
-https://api.github.com/repos/1042963113-cmyk/codex-test
+codex-v6-projects
 ```
 
-读取公开仓库数据。请求失败时页面会显示安全的本地回退状态，不影响主要内容浏览。
+保存项目数组。数据只存在于当前浏览器与当前设备，不会自动上传或跨设备同步。
 
 ## GitHub Pages 部署
 
@@ -51,7 +56,8 @@ https://api.github.com/repos/1042963113-cmyk/codex-test
 | V2 | 建立完整响应式网站 |
 | V3 | 升级为 Codex Studio，加入主题、导航与动效 |
 | V4 | 升级为成熟的 Portfolio / Studio |
-| **V5（Current）** | 加入实时 GitHub 数据、项目详情页与分享能力 |
+| V5 | 加入实时 GitHub 数据、项目详情页与分享能力 |
+| **V6（Current）** | 加入 CRUD、搜索筛选、本地存储与 JSON 备份，升级为可操作 Web App |
 
 ## 本地预览
 
