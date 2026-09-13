@@ -3,171 +3,108 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Codex Studio：一个持续迭代的现代中文作品与项目主页。" />
-    <title>Codex Studio · 第三版</title>
+    <meta name="description" content="Codex Studio：持续设计、构建并上线数字作品的个人开发者 Portfolio。" />
+    <meta name="theme-color" content="#f7f5ff" />
+    <title>Codex Studio · Portfolio V4</title>
+    <script>
+      (() => {
+        const saved = localStorage.getItem("codex-theme");
+        const dark = saved === "dark" || (!saved && matchMedia("(prefers-color-scheme: dark)").matches);
+        if (dark) document.documentElement.dataset.theme = "dark";
+      })();
+    </script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
     <div class="page-progress" id="page-progress" aria-hidden="true"></div>
 
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="返回首页">
-        <span class="brand-mark">C</span>
-        <span>Codex Studio</span>
+      <a class="brand" href="#home" aria-label="Codex Studio 首页">
+        <span class="brand-mark" aria-hidden="true">C</span><span>Codex Studio</span>
       </a>
-
-      <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button>
-
       <nav class="nav" id="site-nav" aria-label="主导航">
-        <a href="#about">关于</a>
-        <a href="#projects">作品</a>
-        <a href="#journey">历程</a>
-        <a href="#contact">下一步</a>
+        <a href="#home">首页</a><a href="#projects">作品</a><a href="#skills">技能</a><a href="#journey">历程</a><a href="#contact">联系</a>
       </nav>
-
-      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换深色模式">◐</button>
+      <div class="header-actions">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换深色模式"><span aria-hidden="true">◐</span></button>
+        <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="打开导航菜单"><span></span><span></span><span></span></button>
+      </div>
     </header>
 
-    <main id="top">
-      <section class="hero section-shell reveal">
+    <main id="main">
+      <section class="hero section-shell reveal" id="home">
         <div class="hero-copy">
-          <p class="eyebrow">CODEX · GITHUB · PAGES · V3</p>
-          <h1>从测试页面，走向真正的个人数字作品空间。</h1>
-          <p class="hero-text">
-            第三版开始把这个项目当成一个真正的网站来设计：更清晰的品牌、更完整的作品展示、更强的交互，以及可以继续扩展的产品化结构。
-          </p>
-
+          <div class="version-lockup"><span>V4</span><strong>Current Version</strong></div>
+          <p class="eyebrow">PERSONAL DEVELOPER · PORTFOLIO / STUDIO</p>
+          <h1>把想法，构建成<br /><em>真正上线</em>的作品。</h1>
+          <p class="hero-text">Codex Studio 是一个持续进化的个人开发者工作室。从验证一条链路开始，现在专注于简洁、可靠且有品质的 Web 体验。</p>
           <div class="hero-actions">
-            <a class="button primary" href="#projects">查看第三版作品</a>
-            <a class="button secondary" href="https://github.com/1042963113-cmyk/codex-test" target="_blank" rel="noreferrer">打开 GitHub</a>
+            <a class="button primary" href="#projects">探索作品 <span aria-hidden="true">↘</span></a>
+            <a class="button secondary" href="https://github.com/1042963113-cmyk/codex-test" target="_blank" rel="noreferrer">访问 GitHub <span aria-hidden="true">↗</span></a>
           </div>
-
-          <div class="hero-meta" aria-label="项目信息">
-            <span><strong>V3</strong> 当前版本</span>
-            <span><strong>3</strong> 核心技术</span>
-            <span><strong>Live</strong> GitHub Pages</span>
-          </div>
+          <ul class="hero-tech" aria-label="核心技术">
+            <li>HTML</li><li>CSS</li><li>JavaScript</li><li>GitHub</li><li>Codex</li>
+          </ul>
         </div>
-
-        <div class="hero-visual" aria-label="项目预览">
-          <div class="browser-card">
-            <div class="browser-topbar">
-              <span></span><span></span><span></span>
-              <div class="browser-url">codex-studio.local</div>
-            </div>
-            <div class="browser-body">
-              <div class="mini-badge">LIVE</div>
-              <h2>Build. Ship. Improve.</h2>
-              <p>让每一次修改都成为下一版的起点。</p>
-              <div class="mini-grid">
-                <div><strong>HTML</strong><small>结构</small></div>
-                <div><strong>CSS</strong><small>视觉</small></div>
-                <div><strong>JS</strong><small>交互</small></div>
-              </div>
+        <div class="hero-art" aria-label="Codex Studio 项目概览">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="studio-window">
+            <div class="window-bar"><span></span><span></span><span></span><small>codex.studio / v4</small></div>
+            <div class="window-content">
+              <div class="window-label"><i></i> AVAILABLE TO BUILD</div>
+              <p>DESIGN<br />BUILD<br /><b>SHIP.</b></p>
+              <div class="window-footer"><span>04 / PORTFOLIO</span><span>2026</span></div>
             </div>
           </div>
-          <div class="floating-note note-one">Responsive ✓</div>
-          <div class="floating-note note-two">Dark mode ✓</div>
+          <span class="float-chip chip-one">Responsive ✓</span><span class="float-chip chip-two">Fast &amp; accessible</span>
         </div>
       </section>
 
-      <section class="section-shell section-block reveal" id="about">
-        <div class="section-heading split-heading">
-          <div>
-            <p class="eyebrow">ABOUT</p>
-            <h2>第三版，不只是“更好看”。</h2>
-          </div>
-          <p class="section-intro">这一版把重点放在更成熟的网站体验：品牌一致性、内容层级、交互反馈、移动端适配，以及后续继续扩展的空间。</p>
-        </div>
+      <section class="stats section-shell reveal" aria-label="项目数据">
+        <article><strong>04</strong><span>版本迭代</span></article><article><strong>100%</strong><span>静态托管</span></article><article><strong>24/7</strong><span>在线访问</span></article><article><strong>PR</strong><span>规范更新</span></article>
+      </section>
 
-        <div class="feature-grid">
-          <article class="feature-card">
-            <span class="feature-number">01</span>
-            <h3>品牌化首页</h3>
-            <p>从单纯的 Codex 测试页，升级为更像正式项目主页的 Codex Studio。</p>
+      <section class="section-shell section-block" id="projects">
+        <div class="section-heading reveal"><div><p class="eyebrow">SELECTED WORK / 作品</p><h2>每一版，都是一次<br />真实的产品迭代。</h2></div><p>从最小验证到完整 Portfolio，保留过程，也展示结果。</p></div>
+        <div class="projects-grid">
+          <article class="project-card featured reveal">
+            <div class="project-top"><span class="project-index">01 / FEATURED</span><span class="status current"><i></i> Current</span></div>
+            <div class="featured-content"><div><h3>Codex Studio</h3><p>成熟、精致的个人开发者 Portfolio / Studio。覆盖作品、技能、历程与联系，让持续构建这件事有一个专业的数字主页。</p><ul class="tag-list"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>UI Design</li></ul></div><div class="project-monogram" aria-hidden="true">CS<span>V4</span></div></div>
+            <a class="project-link" href="#home" aria-label="查看 Codex Studio 项目">查看项目 <span>↗</span></a>
           </article>
-          <article class="feature-card">
-            <span class="feature-number">02</span>
-            <h3>深色模式</h3>
-            <p>支持一键切换明暗主题，并会记住上一次选择。</p>
-          </article>
-          <article class="feature-card">
-            <span class="feature-number">03</span>
-            <h3>滚动动效</h3>
-            <p>内容进入视口时自然出现，页面更有层次感，又不会过度花哨。</p>
-          </article>
-          <article class="feature-card">
-            <span class="feature-number">04</span>
-            <h3>移动导航</h3>
-            <p>手机与 iPad 窄屏状态下，导航会自动收纳，触控使用更顺手。</p>
-          </article>
+          <article class="project-card reveal"><div class="project-top"><span class="project-index">02</span><span class="status">Archived</span></div><h3>Website V1</h3><p>用最小页面验证从 Codex、GitHub 到 Pages 的完整发布链路。</p><ul class="tag-list"><li>HTML</li><li>GitHub Pages</li></ul><a class="project-link" href="https://github.com/1042963113-cmyk/codex-test/tree/website-v1" target="_blank" rel="noreferrer">查看项目 <span>↗</span></a></article>
+          <article class="project-card reveal"><div class="project-top"><span class="project-index">03</span><span class="status">Archived</span></div><h3>Website V2</h3><p>建立完整内容结构，加入现代视觉与多设备响应式布局。</p><ul class="tag-list"><li>HTML</li><li>CSS</li><li>Responsive</li></ul><a class="project-link" href="https://github.com/1042963113-cmyk/codex-test/tree/website-v2" target="_blank" rel="noreferrer">查看项目 <span>↗</span></a></article>
+          <article class="project-card reveal"><div class="project-top"><span class="project-index">04</span><span class="status">Previous</span></div><h3>Website V3</h3><p>升级为 Codex Studio，加入品牌、主题切换与滚动微交互。</p><ul class="tag-list"><li>JavaScript</li><li>Dark Mode</li><li>Codex</li></ul><a class="project-link" href="https://github.com/1042963113-cmyk/codex-test/tree/codex/website-v3" target="_blank" rel="noreferrer">查看项目 <span>↗</span></a></article>
         </div>
       </section>
 
-      <section class="section-shell section-block reveal" id="projects">
-        <div class="section-heading">
-          <p class="eyebrow">PROJECTS</p>
-          <h2>这个网站本身，就是第一个完整作品。</h2>
-        </div>
-
-        <div class="project-showcase">
-          <div class="project-copy">
-            <p class="project-kicker">PROJECT 001 · CODEX STUDIO</p>
-            <h3>从 0 到上线，再连续迭代到第三版。</h3>
-            <p>完整流程已经包含：创建 GitHub 仓库、连接 Codex、生成代码、Pull Request、Merge、GitHub Pages 自动部署，以及版本化迭代。</p>
-            <div class="tag-list" aria-label="使用技术">
-              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>GitHub</span><span>Codex</span>
-            </div>
-            <a class="text-link" href="https://github.com/1042963113-cmyk/codex-test" target="_blank" rel="noreferrer">查看项目仓库 →</a>
-          </div>
-
-          <div class="project-preview" aria-label="项目数据">
-            <div class="stat large-stat"><strong>03</strong><span>版本迭代</span></div>
-            <div class="stat"><strong>100%</strong><span>静态托管</span></div>
-            <div class="stat"><strong>24/7</strong><span>在线访问</span></div>
-            <div class="stat"><strong>PR</strong><span>规范更新</span></div>
+      <section class="skills-section section-block" id="skills">
+        <div class="section-shell">
+          <div class="section-heading reveal"><div><p class="eyebrow">CAPABILITIES / 技能</p><h2>从结构到上线，<br />让细节形成体验。</h2></div><p>以原生 Web 技术为核心，兼顾视觉表达、响应式体验与可靠交付。</p></div>
+          <div class="skills-grid">
+            <article class="skill-card reveal"><span>01</span><div class="skill-icon">&lt;/&gt;</div><h3>HTML</h3><p>语义化结构</p></article><article class="skill-card reveal"><span>02</span><div class="skill-icon">✦</div><h3>CSS</h3><p>现代视觉系统</p></article><article class="skill-card reveal"><span>03</span><div class="skill-icon">JS</div><h3>JavaScript</h3><p>轻量原生交互</p></article><article class="skill-card reveal"><span>04</span><div class="skill-icon">⌘</div><h3>GitHub</h3><p>版本协作</p></article><article class="skill-card reveal"><span>05</span><div class="skill-icon">↗</div><h3>GitHub Pages</h3><p>持续部署</p></article><article class="skill-card reveal"><span>06</span><div class="skill-icon">C</div><h3>Codex</h3><p>AI 协作开发</p></article><article class="skill-card reveal"><span>07</span><div class="skill-icon">▣</div><h3>Responsive Design</h3><p>多设备适配</p></article><article class="skill-card reveal"><span>08</span><div class="skill-icon">◫</div><h3>UI Design</h3><p>界面与体验</p></article>
           </div>
         </div>
       </section>
 
-      <section class="section-shell section-block reveal" id="journey">
-        <div class="section-heading">
-          <p class="eyebrow">JOURNEY</p>
-          <h2>三版迭代，网站一步步成熟。</h2>
-        </div>
-
+      <section class="section-shell section-block" id="journey">
+        <div class="section-heading reveal"><div><p class="eyebrow">EVOLUTION / 历程</p><h2>四次迭代，<br />一条清晰的进化轨迹。</h2></div><p>不追求一次完成，而是在每一次发布中解决更真实的问题。</p></div>
         <div class="timeline">
-          <article>
-            <span>V1</span>
-            <div><h3>验证链路</h3><p>一个标题、一个按钮，验证 Codex → GitHub → Pages 是否真正跑通。</p></div>
-          </article>
-          <article>
-            <span>V2</span>
-            <div><h3>建立完整页面</h3><p>增加导航、功能区、作品区、CTA 与现代响应式视觉。</p></div>
-          </article>
-          <article class="active">
-            <span>V3</span>
-            <div><h3>进入产品化阶段</h3><p>加入品牌、主题切换、动画、移动导航和更系统的作品表达。</p></div>
-          </article>
+          <article class="reveal"><div class="timeline-marker">V1</div><div><p class="timeline-date">FOUNDATION</p><h3>验证发布链路</h3><p>验证 Codex → GitHub → Pages 链路，让第一个页面真正上线。</p></div></article>
+          <article class="reveal"><div class="timeline-marker">V2</div><div><p class="timeline-date">STRUCTURE</p><h3>建立完整响应式网站</h3><p>补全页面结构与内容层级，让手机、平板和桌面都有良好体验。</p></div></article>
+          <article class="reveal"><div class="timeline-marker">V3</div><div><p class="timeline-date">IDENTITY</p><h3>升级为 Codex Studio</h3><p>形成独立品牌，加入深色模式、移动导航和滚动交互。</p></div></article>
+          <article class="active reveal"><div class="timeline-marker">V4</div><div><div class="current-label"><i></i> CURRENT</div><p class="timeline-date">PORTFOLIO</p><h3>升级为完整 Portfolio / Studio</h3><p>重塑作品、技能、历程与联系区域，以更成熟的设计呈现完整能力。</p></div></article>
         </div>
       </section>
 
-      <section class="cta section-shell reveal" id="contact">
-        <div>
-          <p class="eyebrow">NEXT</p>
-          <h2>下一步，可以把它变成真正属于你的个人网站。</h2>
-          <p>第四版可以继续加入真实姓名或品牌、个人头像、作品图片、联系方式、自定义域名，以及更多真实项目。</p>
-        </div>
-        <button class="button primary" id="success-button" type="button">测试第三版交互</button>
-        <p id="success-message" class="success-message" role="status" aria-live="polite" hidden>第三版运行成功！主题、动画与交互均已加载。</p>
+      <section class="contact section-shell reveal" id="contact">
+        <div><p class="eyebrow">LET'S BUILD / 联系</p><h2>下一步，一起做点<br /><em>真正上线</em>的东西。</h2><p>每个好项目都从一次明确的行动开始。去 GitHub 看看代码，或者回到顶部继续探索。</p></div>
+        <div class="contact-actions"><a class="button primary" href="https://github.com/1042963113-cmyk/codex-test" target="_blank" rel="noreferrer">GitHub <span>↗</span></a><a class="button secondary" href="#home">返回顶部 <span>↑</span></a></div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <span>© <span id="year"></span> Codex Studio</span>
-      <span>Version 3 · Built with Codex + GitHub Pages</span>
-    </footer>
-
+    <footer class="site-footer"><a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">C</span><span>Codex Studio</span></a><p>Built with Codex + GitHub Pages</p><p>© 2026</p></footer>
     <script src="script.js"></script>
   </body>
 </html>
