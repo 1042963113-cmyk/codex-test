@@ -2,86 +2,66 @@ const root = document.documentElement;
 const themeToggle = document.querySelector("#theme-toggle");
 const menuButton = document.querySelector("#menu-button");
 const siteNav = document.querySelector("#site-nav");
-const successButton = document.querySelector("#success-button");
-const successMessage = document.querySelector("#success-message");
-const year = document.querySelector("#year");
-const pageProgress = document.querySelector("#page-progress");
+const progress = document.querySelector("#page-progress");
+const themeColor = document.querySelector('meta[name="theme-color"]');
+const mobileQuery = window.matchMedia("(max-width: 760px)");
+
+function updateThemeControl() {
+  const dark = root.dataset.theme === "dark";
+  themeToggle.querySelector("span").textContent = dark ? "☀" : "◐";
+  themeToggle.setAttribute("aria-label", dark ? "切换浅色模式" : "切换深色模式");
+  themeColor?.setAttribute("content", dark ? "#0d0c13" : "#f8f7fc");
+}
+
+themeToggle.addEventListener("click", () => {
+  const next = root.dataset.theme === "dark" ? "light" : "dark";
+  if (next === "dark") root.dataset.theme = "dark";
+  else delete root.dataset.theme;
+  localStorage.setItem("codex-theme", next);
+  updateThemeControl();
+});
+updateThemeControl();
+
+function closeMenu() {
+  siteNav.classList.remove("is-open");
+  menuButton.setAttribute("aria-expanded", "false");
+  menuButton.setAttribute("aria-label", "打开导航菜单");
+}
+
+menuButton.addEventListener("click", () => {
+  const open = siteNav.classList.toggle("is-open");
+  menuButton.setAttribute("aria-expanded", String(open));
+  menuButton.setAttribute("aria-label", open ? "关闭导航菜单" : "打开导航菜单");
+});
+siteNav.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+mobileQuery.addEventListener("change", (event) => { if (!event.matches) closeMenu(); });
+document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeMenu(); });
+
+const sections = [...document.querySelectorAll("main section[id]")];
+const navLinks = [...siteNav.querySelectorAll("a")];
 const revealItems = document.querySelectorAll(".reveal");
 
-const savedTheme = localStorage.getItem("codex-theme");
-const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches;
-
-if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-  root.dataset.theme = "dark";
-}
-
-function updateThemeLabel() {
-  if (!themeToggle) return;
-  const isDark = root.dataset.theme === "dark";
-  themeToggle.textContent = isDark ? "☀" : "◐";
-  themeToggle.setAttribute("aria-label", isDark ? "切换浅色模式" : "切换深色模式");
-}
-
-updateThemeLabel();
-
-themeToggle?.addEventListener("click", () => {
-  const isDark = root.dataset.theme === "dark";
-  if (isDark) {
-    delete root.dataset.theme;
-    localStorage.setItem("codex-theme", "light");
-  } else {
-    root.dataset.theme = "dark";
-    localStorage.setItem("codex-theme", "dark");
-  }
-  updateThemeLabel();
-});
-
-menuButton?.addEventListener("click", () => {
-  const open = siteNav?.classList.toggle("is-open") ?? false;
-  menuButton.setAttribute("aria-expanded", String(open));
-  menuButton.textContent = open ? "关闭" : "菜单";
-});
-
-siteNav?.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    siteNav.classList.remove("is-open");
-    menuButton?.setAttribute("aria-expanded", "false");
-    if (menuButton) menuButton.textContent = "菜单";
+function updateScrollState() {
+  const max = root.scrollHeight - innerHeight;
+  progress.style.width = `${max > 0 ? Math.min(100, scrollY / max * 100) : 0}%`;
+  const position = scrollY + innerHeight * 0.32;
+  let current = sections[0]?.id;
+  sections.forEach((section) => { if (section.offsetTop <= position) current = section.id; });
+  navLinks.forEach((link) => {
+    const active = link.getAttribute("href") === `#${current}`;
+    link.classList.toggle("active", active);
+    if (active) link.setAttribute("aria-current", "page"); else link.removeAttribute("aria-current");
   });
-});
-
-successButton?.addEventListener("click", () => {
-  if (successMessage) successMessage.hidden = false;
-  successButton.textContent = "第三版测试成功 ✓";
-});
-
-if (year) {
-  year.textContent = new Date().getFullYear();
 }
 
-function updateProgress() {
-  if (!pageProgress) return;
-  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
-  pageProgress.style.width = `${Math.min(100, Math.max(0, progress))}%`;
-}
+addEventListener("scroll", updateScrollState, { passive: true });
+addEventListener("resize", updateScrollState, { passive: true });
+updateScrollState();
 
-window.addEventListener("scroll", updateProgress, { passive: true });
-updateProgress();
-
-if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12 }
-  );
-
+if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+    if (entry.isIntersecting) { entry.target.classList.add("is-visible"); observer.unobserve(entry.target); }
+  }), { threshold: 0.1, rootMargin: "0px 0px -30px" });
   revealItems.forEach((item) => observer.observe(item));
 } else {
   revealItems.forEach((item) => item.classList.add("is-visible"));
