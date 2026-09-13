@@ -1,49 +1,59 @@
-# Codex Studio · Website V4
+# Codex Studio · Website V5
 
-Codex Studio 是一个使用原生 Web 技术构建并持续迭代的个人开发者 Portfolio / Studio 网站。V4 在第三版已有品牌、主题与交互基础上，升级了视觉系统、作品表达和多设备体验。
+Codex Studio 是一个使用原生 Web 技术持续迭代的个人开发者 Portfolio / Studio 网站。V5 从“完整作品集”继续升级为“带真实功能的产品”：加入实时 GitHub 数据、独立项目详情页、分享能力和更清晰的多页面结构。
 
-## V4 新功能
+## V5 新功能
 
-- 全新首屏、独立技术徽章与四张项目统计卡片
-- Featured Project 和 Website V1–V3 作品卡片
-- HTML、CSS、JavaScript、GitHub、GitHub Pages、Codex、Responsive Design、UI Design 技能矩阵
-- V1 → V4 可视化时间轴，并突出当前 V4
-- 适配手机、iPad 横屏与桌面的响应式导航和布局
-- 可持久化的深色模式，同时支持系统 `prefers-color-scheme`
-- 滚动进入、导航状态、卡片与按钮微交互，并尊重 `prefers-reduced-motion`
-- 语义化 HTML、键盘焦点、跳转链接和 ARIA 状态等无障碍细节
+- 通过 GitHub 公共 API 实时读取仓库 Stars、Forks、默认分支和最近更新时间
+- 新增 `project.html` 独立项目详情页
+- 新增原生 Web Share 分享能力，并在不支持时回退到复制链接
+- 新增手动刷新实时仓库数据
+- 保留并优化 V4 的深色模式、响应式导航、滚动状态和无障碍体验
+- 修复页面横向溢出，继续适配手机、iPad 横屏和桌面
+- 不依赖 React、Vue 或大型第三方框架
 
 ## 项目结构
 
 ```text
 .
-├── index.html   # 页面语义结构与内容
-├── style.css    # 视觉系统、主题、响应式布局与动效
-├── script.js    # 主题、移动导航、滚动状态与进入动画
-└── README.md    # 项目说明
+├── index.html       # V5 首页
+├── project.html     # 独立项目详情页
+├── style-v5.css     # V5 视觉系统、主题与响应式布局
+├── script-v5.js     # V5 主题、导航、分享与 GitHub API
+├── style.css        # V4 样式历史文件
+├── script.js        # V4 脚本历史文件
+└── README.md        # 项目说明
 ```
 
-项目不依赖 React、Vue 或第三方动画库，可以由 GitHub Pages 直接作为静态网站托管。
+## 实时数据
+
+首页会请求：
+
+```text
+https://api.github.com/repos/1042963113-cmyk/codex-test
+```
+
+读取公开仓库数据。请求失败时页面会显示安全的本地回退状态，不影响主要内容浏览。
 
 ## GitHub Pages 部署
 
-1. 将分支通过 Pull Request 合并到 `main`。
-2. 在仓库 **Settings → Pages** 中选择 **Deploy from a branch**。
-3. Source 选择 `main` 分支与 `/ (root)` 目录并保存。
-4. 等待 GitHub Pages 完成构建，即可从仓库的 Pages 地址访问。
+1. 在独立分支完成修改。
+2. 创建 Pull Request 合并到 `main`。
+3. GitHub Pages 保持 `Deploy from a branch`。
+4. Source 使用 `main` 与 `/ (root)`。
+5. 合并后 GitHub Pages 自动重新部署。
 
 ## 版本历程
 
 | 版本 | 迭代重点 |
 | --- | --- |
 | V1 | 验证 Codex → GitHub → Pages 发布链路 |
-| V2 | 建立完整的响应式网站 |
+| V2 | 建立完整响应式网站 |
 | V3 | 升级为 Codex Studio，加入主题、导航与动效 |
-| **V4（Current）** | 升级为完整、成熟的 Portfolio / Studio |
+| V4 | 升级为成熟的 Portfolio / Studio |
+| **V5（Current）** | 加入实时 GitHub 数据、项目详情页与分享能力 |
 
 ## 本地预览
-
-可以直接打开 `index.html`，或在项目目录启动任意静态文件服务器：
 
 ```bash
 python3 -m http.server 8000
